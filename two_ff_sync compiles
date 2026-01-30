@@ -1,0 +1,24 @@
+odule two_ff_sync (
+  input  logic               clk,
+  input  logic               rst,           // active-high reset
+  input  logic [WIDTH-1:0]   d,             // async input
+  output logic [WIDTH-1:0]   q              // synced output
+);
+
+  logic [WIDTH-1:0] ff1, ff2;
+
+  // always_ff has NO parentheses, and event control is @(...)
+  // For async reset: use "or posedge rst"
+  always_ff @(posedge clk or posedge rst) begin
+    if (rst) begin
+      ff1 <= '0;
+      ff2 <= '0;
+    end else begin
+      ff1 <= d;
+      ff2 <= ff1;
+    end
+  end
+
+  assign q = ff2;
+
+endmodule
