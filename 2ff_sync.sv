@@ -1,5 +1,5 @@
 import async_fifo_package::*;
-module 2ff_sync(
+module two_ff_sync(
 	input logic clk, rst,
 	input logic [WIDTH-1:0] q,
 	output logic [WIDTH-1:0] d
