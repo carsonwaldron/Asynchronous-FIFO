@@ -47,14 +47,14 @@ module async_fifo(
 		.r_data(r_data)
 		);
 	
-	2ff_sync wptr_sync(
+	two_ff_sync wptr_sync(
 		.clk(wclk),
 		.rst(wrst),
 		.d(rptr_gray),
 		.q(rptr_gray_wclk)
 		);
 		
-	2ff_sync rptr_sync(
+	two_ff_sync rptr_sync(
 		.clk(rclk),
 		.rst(rrst),
 		.d(wptr_gray),
